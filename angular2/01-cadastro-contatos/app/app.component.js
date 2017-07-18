@@ -14,7 +14,7 @@ AppComponent = __decorate([
         template: `
         <h1>My First Angular 2</h1>
 
-        <contatos-lista></contatos-lista>
+        <router-outlet></router-outlet>
     `
     })
 ], AppComponent);
