@@ -11,6 +11,30 @@ let ContatoService = class ContatoService {
     getContatos() {
         return Promise.resolve(contatos_mock_1.CONTATOS);
     }
+    //simulando conexao lenta
+    getContatosSlowly() {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 2000);
+        })
+            .then(() => {
+            console.log("primeiro then");
+            return 'Angular2';
+        })
+            .then((param) => {
+            console.log("segundo then");
+            console.log(param);
+            return new Promise((resolve2, reject2) => {
+                setTimeout(() => {
+                    console.log("continuando depois de 4 segundos...");
+                    resolve2();
+                }, 4000);
+            });
+        })
+            .then(() => {
+            console.log("terceiro then");
+            return this.getContatos();
+        });
+    }
 };
 ContatoService = __decorate([
     core_1.Injectable()
