@@ -4,20 +4,25 @@
     <form>
         <div class="form-group">
             <label for="none">Nome</label>
-            <input type="text" class="form-control" placeholder="Insira o nome">
+            <input type="text" class="form-control" name="nome" placeholder="Insira o nome"
+                [(ngModel)]="contato.nome">
         </div>
 
         <div class="form-group">
             <label for="none">Email</label>
-            <input type="email" class="form-control" placeholder="Insira o Email">
+            <input type="email" class="form-control" placeholder="Insira o Email" name="email" 
+                [(ngModel)]="contato.email">
         </div>
 
         <div class="form-group">
             <label for="none">Telefone</label>
-            <input type="text" class="form-control" placeholder="Insira o Telefone">
+            <input type="text" class="form-control" placeholder="Insira o Telefone" name="telefone"
+                [(ngModel)]="contato.telefone">
         </div>
 
         <button type="submit" class="btn btn-success">Salvar</button>
         <a class="btn btn-secondary" routerLink="/">Voltar</a>
     </form>
+
+    <button (click)="teste()" class="btn btn-warning">Log</button>
 </div>
