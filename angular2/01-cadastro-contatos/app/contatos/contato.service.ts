@@ -9,6 +9,11 @@ export class ContatoService{
         return Promise.resolve(CONTATOS);
     }
 
+    getContato(id : number) : Promise<Contato>{
+        return this.getContatos()
+            .then((contatos : Contato[]) => contatos.find(contato => contato.id === id));
+    }
+
     //simulando conexao lenta
     getContatosSlowly() : Promise<Contato[]>{
         return new Promise((resolve, reject)=> {
