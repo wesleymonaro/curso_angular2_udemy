@@ -8,15 +8,15 @@ import { Contato } from "./contato.model";
     moduleId: module.id,
     selector: "contato-detalhe",
     templateUrl: "contato-detalhe.component.html",
-    styles : [`
-        .ng-valid[required]{
-            border: 1px solid green;
-        }
+    // styles : [`
+    //     .ng-valid[required]{
+    //         border: 1px solid green;
+    //     }
 
-        .ng-invalid:not(form){
-            border: 1px solid red;
-        }
-     `]
+    //     .ng-invalid:not(form){
+    //         border: 1px solid red;
+    //     }
+    //  `]
     //,
     // styleUrls : [
     //     'contato-detalhe.component.css'
@@ -47,6 +47,22 @@ export class ContatoDetalheComponent implements OnInit {
             }
 
         })
+    }
+
+    getFormGroupClass(isValid : boolean, isPristine : boolean) : {} {
+        return {
+            'form-group' : true,
+            'has-danger' : !isValid && !isPristine,
+            'has-success' : isValid && !isPristine
+        };
+    }
+
+    getFormControlClass(isValid : boolean, isPristine : boolean) : {} {
+        return {
+            'form-control' : true,
+            'form-control-danger' : !isValid && !isPristine,
+            'form-control-success' : isValid && !isPristine
+        };
     }
 
     teste(): void {
