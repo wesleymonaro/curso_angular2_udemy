@@ -5,35 +5,38 @@ import { ContatoService } from "./contato.service";
 import { Contato } from "./contato.model";
 
 @Component({
-    moduleId : module.id,
-    selector : "contato-detalhe",
-    templateUrl : "contato-detalhe.component.html"
+    moduleId: module.id,
+    selector: "contato-detalhe",
+    templateUrl: "contato-detalhe.component.html"
 })
-export class ContatoDetalheComponent implements OnInit{
+export class ContatoDetalheComponent implements OnInit {
 
-    contato : Contato;
+    contato: Contato;
 
     constructor(
-        private contatoService : ContatoService,
-        private route : ActivatedRoute,
-        private location : Location
-    ){}
-    ngOnInit():void{
+        private contatoService: ContatoService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) { }
+    ngOnInit(): void {
         console.log("on init");
         this.contato = new Contato(0, '', '', '');
 
-        this.route.params.forEach((params : Params) => {
-            let id : number = +params['id'];
+        this.route.params.forEach((params: Params) => {
+            let id: number = +params['id'];
             console.log(id);
 
-            this.contatoService.getContato(id)
-                .then((contato : Contato) =>{
-                    this.contato = contato;
-                })
+            if (id) {
+                this.contatoService.getContato(id)
+                    .then((contato: Contato) => {
+                        this.contato = contato;
+                    })
+            }
+
         })
     }
 
-    teste() : void{
+    teste(): void {
         console.log(this.contato);
     }
 }
