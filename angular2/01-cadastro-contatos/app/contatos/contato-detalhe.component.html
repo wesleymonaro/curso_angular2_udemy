@@ -1,26 +1,26 @@
 <div class="container">
     <h2>Salvar contato</h2>
 
-    <form>
+    <form #contatoForm="ngForm">
         <div class="form-group">
             <label for="none">Nome</label>
-            <input type="text" class="form-control" name="nome" placeholder="Insira o nome"
+            <input type="text" class="form-control" name="nome" placeholder="Insira o nome" required
                 [(ngModel)]="contato.nome">
         </div>
 
         <div class="form-group">
             <label for="none">Email</label>
-            <input type="email" class="form-control" placeholder="Insira o Email" name="email" 
+            <input type="email" class="form-control" placeholder="Insira o Email" name="email" required
                 [(ngModel)]="contato.email">
         </div>
 
         <div class="form-group">
             <label for="none">Telefone</label>
-            <input type="text" class="form-control" placeholder="Insira o Telefone" name="telefone"
+            <input type="text" class="form-control" placeholder="Insira o Telefone" name="telefone" required
                 [(ngModel)]="contato.telefone">
         </div>
 
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
         <a class="btn btn-secondary" routerLink="/">Voltar</a>
     </form>
 

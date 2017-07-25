@@ -34,7 +34,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
         });
     }
     teste() {
-        console.log(this.contato);
+        console.log();
     }
 };
 ContatoDetalheComponent = __decorate([
