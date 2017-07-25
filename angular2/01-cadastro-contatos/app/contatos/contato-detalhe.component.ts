@@ -25,6 +25,7 @@ import { Contato } from "./contato.model";
 export class ContatoDetalheComponent implements OnInit {
 
     contato: Contato;
+    private isNew : boolean = true;
 
     constructor(
         private contatoService: ContatoService,
@@ -40,6 +41,7 @@ export class ContatoDetalheComponent implements OnInit {
             console.log(id);
 
             if (id) {
+                this.isNew = false;
                 this.contatoService.getContato(id)
                     .then((contato: Contato) => {
                         this.contato = contato;
@@ -65,7 +67,11 @@ export class ContatoDetalheComponent implements OnInit {
         };
     }
 
-    teste(): void {
-        console.log();
+    onSubmit() : void{
+        if(this.isNew){
+            console.log("cadastrar contato");
+        }else{
+            console.log("alterar contato")
+        }
     }
 }
