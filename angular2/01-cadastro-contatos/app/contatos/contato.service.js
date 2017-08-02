@@ -19,11 +19,16 @@ let ContatoService = class ContatoService {
     getContatos() {
         return this.http.get(this.contatosUrl)
             .toPromise()
-            .then(response => response.json().data);
+            .then(response => response.json().data)
+            .catch(this.handleError);
     }
     getContato(id) {
         return this.getContatos()
             .then((contatos) => contatos.find(contato => contato.id === id));
+    }
+    handleError(err) {
+        console.log("Error: ", err);
+        return Promise.reject(err.message || err);
     }
     //simulando conexao lenta
     getContatosSlowly() {
