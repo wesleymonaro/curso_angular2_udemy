@@ -11,6 +11,6 @@ export class InMemoryDataService implements InMemoryDbService {
             { id: 5, nome: 'Sr. Barriga', email: 'barriga@email.com', telefone: '(00) 0000-0000' }
         ];
 
-        return contatos;        
+        return {contatos};        
     }
 }

@@ -8,7 +8,7 @@ class InMemoryDataService {
             { id: 4, nome: 'Chiquinha', email: 'chiquinha@email.com', telefone: '(00) 0000-0000' },
             { id: 5, nome: 'Sr. Barriga', email: 'barriga@email.com', telefone: '(00) 0000-0000' }
         ];
-        return contatos;
+        return { contatos };
     }
 }
 exports.InMemoryDataService = InMemoryDataService;
