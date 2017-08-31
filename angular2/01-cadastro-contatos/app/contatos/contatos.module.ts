@@ -1,3 +1,4 @@
+import { ContatoBuscaComponent } from './contato-busca.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -14,10 +15,12 @@ import { ContatoService } from "./contato.service";
         FormsModule
     ],
     declarations : [
+        ContatoBuscaComponent,
         ContatoDetalheComponent,
         ContatosListaComponent
     ],
     exports : [
+        ContatoBuscaComponent,
         ContatosListaComponent
     ],
     providers : [
