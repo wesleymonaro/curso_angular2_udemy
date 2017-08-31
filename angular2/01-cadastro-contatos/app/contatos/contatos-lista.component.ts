@@ -11,7 +11,7 @@ import { DialogService } from "../dialog.service";
   // providers : [ContatoService]
 })
 export class ContatosListaComponent implements OnInit {
-  contatos: Contato[];
+  contatos: Contato[] = [];
   mensagem: {};
   classesCSS: {};
   private currentTimeout: any;
