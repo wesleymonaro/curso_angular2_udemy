@@ -11,17 +11,17 @@ import { ContatosModule } from "./contatos/contatos.module";
 import { DialogService } from './dialog.service';
 
 @NgModule({
-    imports : [
-        AppRoutingModule,
-        BrowserModule,
-        ContatosModule,
-        HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService)
-    ],
-    declarations : [AppComponent],
-    bootstrap : [AppComponent],
-    providers : [
-        DialogService
-    ]
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    ContatosModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  providers: [
+    DialogService
+  ]
 })
-export class AppModule{}
+export class AppModule { }

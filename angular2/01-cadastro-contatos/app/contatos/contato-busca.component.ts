@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    moduleId : module.id,
-    selector: 'contato-busca',
-    templateUrl: 'contato-busca.component.html'
+  moduleId: module.id,
+  selector: 'contato-busca',
+  templateUrl: 'contato-busca.component.html'
 })
 
 export class ContatoBuscaComponent implements OnInit {
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() { }
+  ngOnInit() { }
 
-    search(term: string): void{
-        console.log(term);
-    }
+  search(term: string): void {
+    console.log(term);
+  }
 }

@@ -9,22 +9,22 @@ import { ContatoRoutingModule } from "./contato-routing.module";
 import { ContatoService } from "./contato.service";
 
 @NgModule({
-    imports : [
-        CommonModule,
-        ContatoRoutingModule,
-        FormsModule
-    ],
-    declarations : [
-        ContatoBuscaComponent,
-        ContatoDetalheComponent,
-        ContatosListaComponent
-    ],
-    exports : [
-        ContatoBuscaComponent,
-        ContatosListaComponent
-    ],
-    providers : [
-        ContatoService
-    ]
+  imports: [
+    CommonModule,
+    ContatoRoutingModule,
+    FormsModule
+  ],
+  declarations: [
+    ContatoBuscaComponent,
+    ContatoDetalheComponent,
+    ContatosListaComponent
+  ],
+  exports: [
+    ContatoBuscaComponent,
+    ContatosListaComponent
+  ],
+  providers: [
+    ContatoService
+  ]
 })
-export class ContatosModule{}
+export class ContatosModule { }

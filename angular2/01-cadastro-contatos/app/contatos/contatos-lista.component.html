@@ -11,8 +11,7 @@
           <strong *ngSwitchCase="'warning'">Alerta!</strong>
           <strong *ngSwitchCase="'success'">Sucesso!</strong>
           <strong *ngSwitchDefault>Informação!</strong>
-        </span>
-        {{ mensagem.texto}}
+        </span> {{ mensagem.texto}}
       </div>
 
       <a routerLink="/contato/save" class="btn btn-success">Novo</a>

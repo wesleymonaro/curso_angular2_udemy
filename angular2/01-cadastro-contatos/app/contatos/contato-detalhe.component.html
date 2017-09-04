@@ -1,32 +1,29 @@
 <div class="container">
-    <h2>Salvar contato</h2>
+  <h2>Salvar contato</h2>
 
-    <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" novalidate>
-        <div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
-            <label for="none" class="form-control-label">Nome</label>
-            <input type="text" [ngClass]="getFormControlClass(nome.valid, nome.pristine)" name="nome" placeholder="Insira o nome" required
-                [(ngModel)]="contato.nome"
-                #nome="ngModel">
-                <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo nome e obrigatorio</div>
-        </div>
+  <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" novalidate>
+    <div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
+      <label for="none" class="form-control-label">Nome</label>
+      <input type="text" [ngClass]="getFormControlClass(nome.valid, nome.pristine)" name="nome" placeholder="Insira o nome" required
+        [(ngModel)]="contato.nome" #nome="ngModel">
+      <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo nome e obrigatorio</div>
+    </div>
 
-        <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
-            <label for="none">Email</label>
-            <input type="email" [ngClass]="getFormControlClass(email.valid, email.pristine)" placeholder="Insira o Email" name="email" required
-                [(ngModel)]="contato.email"
-                #email="ngModel">
-                <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O campo E-mail e obrigatorio</div>
-        </div>
+    <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
+      <label for="none">Email</label>
+      <input type="email" [ngClass]="getFormControlClass(email.valid, email.pristine)" placeholder="Insira o Email" name="email"
+        required [(ngModel)]="contato.email" #email="ngModel">
+      <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O campo E-mail e obrigatorio</div>
+    </div>
 
-        <div [ngClass]="getFormGroupClass(telefone.valid, telefone.pristine)">
-            <label for="none">Telefone</label>
-            <input type="text" [ngClass]="getFormControlClass(telefone.valid, telefone.pristine)" placeholder="Insira o Telefone" name="telefone" required
-                [(ngModel)]="contato.telefone"
-                #telefone="ngModel">
-                <div class="form-control-feedback" [hidden]="telefone.valid || telefone.pristine">O campo telefone e obrigatorio</div>
-        </div>
+    <div [ngClass]="getFormGroupClass(telefone.valid, telefone.pristine)">
+      <label for="none">Telefone</label>
+      <input type="text" [ngClass]="getFormControlClass(telefone.valid, telefone.pristine)" placeholder="Insira o Telefone" name="telefone"
+        required [(ngModel)]="contato.telefone" #telefone="ngModel">
+      <div class="form-control-feedback" [hidden]="telefone.valid || telefone.pristine">O campo telefone e obrigatorio</div>
+    </div>
 
-        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
-        <a class="btn btn-secondary" (click)="goBack()">Voltar</a>
-    </form>
+    <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
+    <a class="btn btn-secondary" (click)="goBack()">Voltar</a>
+  </form>
 </div>
