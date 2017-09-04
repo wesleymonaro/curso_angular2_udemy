@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, Response } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
 
 
 import { CONTATOS } from "./contatos-mock";
@@ -83,5 +84,11 @@ export class ContatoService{
             console.log("terceiro then");
             return this.getContatos();
         });
+    }
+
+    search(term : string): Observable<Contato[]>{
+        return this.http
+            .get(`${this.contatosUrl}/?nome=${term}`)
+            .map((res : Response) => res.json().data as Contato[]);
     }
 }
