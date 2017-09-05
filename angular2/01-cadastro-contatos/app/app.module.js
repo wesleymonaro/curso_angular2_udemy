@@ -9,6 +9,7 @@ require("./util/rjxs-extensions");
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
 const http_1 = require("@angular/http");
+const forms_1 = require("@angular/forms");
 const angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
 const in_memory_data_service_1 = require("./in-memory-data.service");
 const app_component_1 = require("./app.component");
@@ -24,6 +25,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             contatos_module_1.ContatosModule,
             http_1.HttpModule,
+            forms_1.FormsModule,
             angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService)
         ],
         declarations: [app_component_1.AppComponent],

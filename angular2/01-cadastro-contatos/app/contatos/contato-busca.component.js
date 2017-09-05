@@ -29,6 +29,10 @@ let ContatoBuscaComponent = class ContatoBuscaComponent {
             return observable_1.Observable.of([]);
         });
     }
+    ngOnChanges(changes) {
+        let busca = changes['busca'];
+        this.search(busca.currentValue);
+    }
     search(termo) {
         this.termosDaBusca.next(termo);
     }
@@ -37,6 +41,10 @@ let ContatoBuscaComponent = class ContatoBuscaComponent {
         this.router.navigate(link);
     }
 };
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ContatoBuscaComponent.prototype, "busca", void 0);
 ContatoBuscaComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
@@ -46,7 +54,7 @@ ContatoBuscaComponent = __decorate([
     .cursor-pointer:hover{
       cursor: pointer;
     }
-  `]
+  `],
     }),
     __metadata("design:paramtypes", [contato_service_1.ContatoService,
         router_1.Router])

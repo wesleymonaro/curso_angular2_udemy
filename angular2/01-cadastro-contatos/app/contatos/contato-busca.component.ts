@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Contato } from './contato.model';
 import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/subject';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -13,11 +13,15 @@ import { Component, OnInit } from '@angular/core';
     .cursor-pointer:hover{
       cursor: pointer;
     }
-  `]
+  `],
+  // inputs : [
+  //   'busca:mySearch' //propertyName: alias
+  // ]
 })
 
-export class ContatoBuscaComponent implements OnInit {
+export class ContatoBuscaComponent implements OnInit, OnChanges {
 
+  @Input() busca : string;
   contatos: Observable<Contato[]>;
   private termosDaBusca: Subject<string> = new Subject<string>();
 
@@ -35,6 +39,11 @@ export class ContatoBuscaComponent implements OnInit {
         console.log(err);
         return Observable.of<Contato[]>([])
       });
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void{
+    let busca: SimpleChange = changes['busca'];
+    this.search(busca.currentValue);
   }
 
   search(termo: string): void {
