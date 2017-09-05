@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Contato } from './contato.model';
 import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/subject';
-import { Component, OnInit, OnChanges, Input, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, OnChanges, SimpleChange, SimpleChanges, Output } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -16,12 +16,17 @@ import { Component, OnInit, OnChanges, Input, SimpleChange, SimpleChanges } from
   `],
   // inputs : [
   //   'busca:mySearch' //propertyName: alias
+  // ],
+  // outputs : [
+  //   'busca:mySearch' //propertyName: alias
   // ]
 })
 
 export class ContatoBuscaComponent implements OnInit, OnChanges {
 
   @Input() busca : string;
+  @Output() buscaChange: EventEmitter<string> = new EventEmitter<string>();
+
   contatos: Observable<Contato[]>;
   private termosDaBusca: Subject<string> = new Subject<string>();
 
@@ -47,7 +52,8 @@ export class ContatoBuscaComponent implements OnInit, OnChanges {
   }
 
   search(termo: string): void {
-    this.termosDaBusca.next(termo)
+    this.termosDaBusca.next(termo);
+    this.buscaChange.emit(termo);
   }
 
   verDetalhe(contato : Contato): void{
