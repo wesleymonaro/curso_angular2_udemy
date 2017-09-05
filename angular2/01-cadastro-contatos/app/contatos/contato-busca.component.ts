@@ -21,6 +21,7 @@ export class ContatoBuscaComponent implements OnInit {
 
   ngOnInit(): void { 
     this.contatos = this.termosDaBusca
+      .debounceTime(300)
       .switchMap(term => {
         console.log("Fez a busca: ", term);
         return term ? this.contatoService.search(term) : Observable.of<Contato[]>([]);

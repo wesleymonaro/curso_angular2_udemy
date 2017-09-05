@@ -19,6 +19,7 @@ let ContatoBuscaComponent = class ContatoBuscaComponent {
     }
     ngOnInit() {
         this.contatos = this.termosDaBusca
+            .debounceTime(300)
             .switchMap(term => {
             console.log("Fez a busca: ", term);
             return term ? this.contatoService.search(term) : observable_1.Observable.of([]);
